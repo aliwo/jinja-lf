@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script language="JavaScript">
+  <!-- hide the script from old browsers --
+    function MakeArray(n){
+      this.length=n;
+      for(var i=1; i<=n; i++) this[i]=i-1;
+      return this
+    }
+    hex=new MakeArray(16);
+    hex[11]="A"; hex[12]="B"; hex[13]="C"; hex[14]="D"; hex[15]="E"; hex[16]="F";
+    function ToHex(x){          //Changes a int to hex (in the range 0 to 255)
+      var high=x/16;
+      var s=high+"";            //1
+      s=s.substring(0,2);       //2 the combination of these are the same as the trunc function
+      high=parseInt(s,10);      //3
+      var left=hex[high+1];     //left part of the hex-value
+      var low=x-high*16;        //calculate the rest of the values
+      s=low+"";                 //1
+      s=s.substring(0,2);       //2 the combination of these are the same as the trunc function
+      low=parseInt(s,10);       //3
+      var right=hex[low+1];     //right part of the hex-value
+      var string=left+""+right; //add the high and low together
+      return string;
+    }
+    function rainbow(text){
+      text=text.substring(3,text.length-4);       //gets rid of the HTML-comment-tags
+      color_d1=255;                               //any value in 'begin' 0 to 255
+      mul=color_d1/text.length;
+      for(i=0;i<text.length;i++){
+        color_d1=255*Math.sin(i/(text.length/3));
+        //some other things you can try>>
+        //"=255-mul*i" to fade out, "=mul*i" to fade in, or try "255*Math.sin(i/(text.length/3))"
+        color_h1=ToHex(color_d1);
+        color_d2=mul*i;
+        color_h2=ToHex(color_d2);
+        document.write("<FONT COLOR='#FF"+color_h1+color_h2+"'>"+text.substring(i,i+1)+'</FONT>');
+      }
+    }
+    // --end hiding here -->
+  </script>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<font size="6">
+<script language="JavaScript">
+<!--
+    {rainbow("-->무지개 글자를 만들어 봅시다.<!__");}
+  //-->
+</script>
+</font>
+</body>
+</html>

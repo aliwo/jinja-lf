@@ -1,0 +1,36 @@
+<body>
+
+<div> 안녕하세요
+    <b>
+    <i>
+        <u>
+            레 터 플 라 이
+        </u>
+    </i>
+    </b>입니다
+</div>
+
+<form method=post>
+    {%  if btn1 == True  %}
+
+        <button type=submit class="btn btn-default" name="lamp" value="off">
+            <i class="fa fa-lightbulb-o fa-5x"></i>
+            <br>검은색으로 변경
+        </button>
+    {% else %}
+
+                <style>
+div {
+    font-style: italic;
+    color: black
+;
+}
+</style>
+
+        <button type=submit class="btn btn-default" name="lamp" value="on">
+            <i class="fa fa-lightbulb-o fa-5x"></i><br>반짝 반짝
+        </button>
+    {%  endif  %}
+</form>
+
+</body>
